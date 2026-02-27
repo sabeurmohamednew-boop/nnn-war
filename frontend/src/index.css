@@ -1,0 +1,228 @@
+@import url('https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@700&family=Manrope:wght@400;500;600;700&family=JetBrains+Mono:wght@400;600&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    /* Background colors */
+    --background: 13 13 13;        /* #0D0D0D */
+    --card: 22 22 22;               /* #161616 */
+    --card-hover: 31 31 31;         /* #1F1F1F */
+    
+    /* Text colors */
+    --foreground: 255 255 255;      /* #FFFFFF */
+    --secondary-text: 179 179 179;  /* #B3B3B3 */
+    --muted-foreground: 128 128 128; /* #808080 */
+    
+    /* Accent colors - ORANGE ONLY */
+    --primary: 249 115 22;          /* #F97316 */
+    --primary-hover: 251 146 60;    /* #FB923C */
+    --primary-foreground: 255 255 255; /* #FFFFFF */
+    
+    /* Borders */
+    --border: 42 42 42;             /* #2A2A2A */
+    --input-border: 42 42 42;       /* #2A2A2A */
+    --ring: 249 115 22;             /* #F97316 focus ring */
+    
+    /* Inputs */
+    --input: 18 18 18;              /* #121212 */
+    --input-text: 255 255 255;      /* #FFFFFF */
+    --placeholder: 107 114 128;     /* #6B7280 */
+    
+    /* Buttons */
+    --button-primary: 249 115 22;   /* #F97316 */
+    --button-primary-hover: 234 88 12; /* #EA580C */
+    --button-primary-text: 255 255 255; /* #FFFFFF */
+    
+    /* Popovers and modals */
+    --popover: 22 22 22;            /* #161616 */
+    --popover-foreground: 255 255 255;
+    
+    /* Muted backgrounds */
+    --muted: 31 31 31;              /* #1F1F1F */
+    
+    /* Secondary (kept for compatibility but not used) */
+    --secondary: 31 31 31;
+    --secondary-foreground: 255 255 255;
+    
+    /* Destructive */
+    --destructive: 220 38 38;
+    --destructive-foreground: 255 255 255;
+    
+    /* Accent (same as primary) */
+    --accent: 249 115 22;
+    --accent-foreground: 255 255 255;
+    
+    /* Success */
+    --success: 34 197 94;
+    
+    --radius: 0.5rem;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  
+  body {
+    margin: 0;
+    background-color: #0D0D0D;
+    color: #FFFFFF;
+    font-family: 'Manrope', 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+  
+  h1, h2, h3, h4, h5, h6 {
+    font-family: 'Barlow Condensed', 'Oswald', sans-serif;
+    color: #FFFFFF;
+    font-weight: 700;
+  }
+}
+
+/* Component overrides for consistent styling */
+@layer components {
+  /* Cards */
+  .bg-card {
+    background-color: #161616 !important;
+    border-color: #2A2A2A !important;
+  }
+  
+  .hover\:bg-card:hover,
+  .bg-card-hover {
+    background-color: #1F1F1F !important;
+  }
+  
+  /* Backgrounds */
+  .bg-background {
+    background-color: #0D0D0D !important;
+  }
+  
+  .bg-muted {
+    background-color: #1F1F1F !important;
+  }
+  
+  /* Text colors */
+  .text-foreground {
+    color: #FFFFFF !important;
+  }
+  
+  .text-secondary,
+  .text-muted-foreground {
+    color: #B3B3B3 !important;
+  }
+  
+  .text-muted {
+    color: #808080 !important;
+  }
+  
+  /* Primary accent - ORANGE */
+  .text-primary {
+    color: #F97316 !important;
+  }
+  
+  .bg-primary {
+    background-color: #F97316 !important;
+    color: #FFFFFF !important;
+  }
+  
+  .bg-primary:hover {
+    background-color: #EA580C !important;
+  }
+  
+  .border-primary {
+    border-color: #F97316 !important;
+  }
+  
+  /* Remove blue/yellow/purple colors */
+  .text-blue-500,
+  .text-blue-400,
+  .text-secondary-foreground {
+    color: #F97316 !important;
+  }
+  
+  .text-yellow-500,
+  .text-yellow-400 {
+    color: #F97316 !important;
+  }
+  
+  .text-purple-500,
+  .text-purple-400 {
+    color: #F97316 !important;
+  }
+  
+  /* Borders */
+  .border,
+  .border-border {
+    border-color: #2A2A2A !important;
+  }
+  
+  /* Inputs */
+  .bg-input,
+  input,
+  textarea,
+  select {
+    background-color: #121212 !important;
+    border-color: #2A2A2A !important;
+    color: #FFFFFF !important;
+  }
+  
+  input::placeholder,
+  textarea::placeholder {
+    color: #6B7280 !important;
+  }
+  
+  input:focus,
+  textarea:focus,
+  select:focus {
+    border-color: #F97316 !important;
+    ring-color: #F97316 !important;
+  }
+  
+  /* Buttons */
+  button[type="submit"],
+  .btn-primary {
+    background-color: #F97316 !important;
+    color: #FFFFFF !important;
+    font-weight: 600;
+  }
+  
+  button[type="submit"]:hover,
+  .btn-primary:hover {
+    background-color: #EA580C !important;
+  }
+  
+  /* Labels */
+  label {
+    color: #B3B3B3 !important;
+    font-weight: 500;
+  }
+  
+  /* Links */
+  a {
+    color: #F97316 !important;
+  }
+  
+  a:hover {
+    color: #FB923C !important;
+  }
+}
+
+/* Utility classes */
+code {
+  font-family: 'JetBrains Mono', source-code-pro, Menlo, Monaco, Consolas, 'Courier New', monospace;
+}
+
+.font-mono {
+  font-family: 'JetBrains Mono', monospace;
+}
+
+/* Remove any gradient backgrounds */
+.bg-gradient-to-r,
+.bg-gradient-to-br {
+  background-image: none !important;
+  background-color: #161616 !important;
+}
